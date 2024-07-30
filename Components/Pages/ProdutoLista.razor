@@ -4,7 +4,6 @@
 <PageTitle>Produto</PageTitle>
 
 <h1>Produto</h1>
-
 <p>Listagem de produtos cadastrados.</p>
 
 @if (produtos == null)
@@ -41,16 +40,11 @@ else
 
     protected override void OnInitialized()
     {
-        produtos = new List<Produto>
+        var sessionFactory = Conexao.ConectarSessionFactory();
+
+        using (var session = sessionFactory.OpenSession())
         {
-            new Produto { id = 1, nome = "Arroz", preco = 10.99, quantidade = 100 },
-            new Produto { id = 2, nome = "Feijão", preco = 20.99, quantidade = 150 },
-            new Produto { id = 3, nome = "Macarrão", preco = 30.99, quantidade = 200 },
-            new Produto { id = 4, nome = "Molho de Tomate", preco = 40.99, quantidade = 250 },
-            new Produto { id = 5, nome = "Ervilhas", preco = 50.99, quantidade = 300 },
-            new Produto { id = 6, nome = "Milho Verde", preco = 60.99, quantidade = 350 },
-            new Produto { id = 7, nome = "Café", preco = 70.99, quantidade = 400 },
-            new Produto { id = 8, nome = "Leite", preco = 80.99, quantidade = 450 },
-        };
+            produtos = session.Query<Produto>().ToList();
+        }
     }
 }
