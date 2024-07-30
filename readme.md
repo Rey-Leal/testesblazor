@@ -7,6 +7,6 @@
 App efetuando CRUD dos dados em uma base SQL através do uso do Framework Blazor e NHibernate, utilizando as tecnologias:
 
 * C#
+* Blazor
 * NHibernate
 * SQL Server
-* Blazor
