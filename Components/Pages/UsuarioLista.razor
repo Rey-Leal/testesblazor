@@ -1,0 +1,52 @@
+﻿@page "/usuariolista"
+@rendermode InteractiveServer
+
+<PageTitle>Usuário</PageTitle>
+
+<h1>Usuário</h1>
+<p>Listagem de usuários cadastrados.</p>
+
+@if (usuarios == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Senha</th>
+                <th>Email</th>
+                <th>Data de Cadastro</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in usuarios)
+            {
+                <tr>
+                    <td>@usuario.id</td>
+                    <td>@usuario.nome</td>
+                    <td>@usuario.senha</td>
+                    <td>@usuario.email</td>
+                    <td>@usuario.dataCadastro</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Usuario> usuarios;
+
+    protected override void OnInitialized()
+    {
+        var sessionFactory = Conexao.ConectarSessionFactory();
+
+        using (var session = sessionFactory.OpenSession())
+        {
+            usuarios = session.Query<Usuario>().ToList();
+        }
+    }
+}

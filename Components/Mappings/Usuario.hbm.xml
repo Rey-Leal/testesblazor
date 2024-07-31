@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="TestesBlazor" namespace="TestesBlazor.Components.Models">
-  <class name="Produto">
+  <class name="Usuario">
     <id name ="id">
       <generator class="native"/>
     </id>
-    <property name="grupo"/>
     <property name="nome"/>
-    <property name="especificacao"/>
-    <property name="unidade"/>
-    <property name="preco"/>
-    <property name="quantidade"/>
+    <property name="senha"/>
+    <property name="email"/>
+    <property name="dataCadastro"/>
   </class>
 </hibernate-mapping>

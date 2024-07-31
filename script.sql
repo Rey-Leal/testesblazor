@@ -1,0 +1,29 @@
+USE [Testes];
+
+CREATE TABLE Produto
+(
+	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	grupo VARCHAR(6) NOT NULL, 
+	nome VARCHAR(50) NOT NULL,
+	especificacao VARCHAR(250) NOT NULL,
+	unidade VARCHAR(20) NOT NULL,
+	preco DECIMAL(18,2) NOT NULL,
+	quantidade INT NOT NULL	
+)
+
+CREATE TABLE Usuario
+(
+	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	nome VARCHAR(50) NOT NULL,
+	senha VARCHAR(30) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	dataCadastro DATETIME NOT NULL
+)
+
+--SELECT * FROM Produto;
+--DELETE FROM Produto;
+--DBCC CHECKIDENT ('Produto', RESEED, 0);
+
+--SELECT * FROM Usuario;
+--DELETE FROM Usuario;
+--DBCC CHECKIDENT ('Usuario', RESEED, 0);

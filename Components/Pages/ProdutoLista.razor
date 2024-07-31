@@ -1,10 +1,11 @@
 ﻿@page "/produtolista"
 @rendermode InteractiveServer
+@inject NavigationManager Navigation
 
 <PageTitle>Produto</PageTitle>
 
 <h1>Produto</h1>
-<p>Listagem de produtos cadastrados.</p>
+<p>Listagem de produtos cadastrados. (@quantidadeDeCadastros cadastros)</p>
 
 @if (produtos == null)
 {
@@ -16,9 +17,13 @@ else
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Grupo</th>
                 <th>Nome</th>
+                <th>Especificação</th>
+                <th>Unidade</th>
                 <th>Preço</th>
                 <th>Quantidade</th>
+                <th>...</th>
             </tr>
         </thead>
         <tbody>
@@ -26,9 +31,20 @@ else
             {
                 <tr>
                     <td>@produto.id</td>
+                    <td>@produto.grupo</td>
                     <td>@produto.nome</td>
+                    <td>@produto.especificacao</td>
+                    <td>@produto.unidade</td>
                     <td>@produto.preco</td>
                     <td>@produto.quantidade</td>
+                    <td>
+                        <a class="btn btn-primary" href="produtoeditar/@produto.id">
+                            L
+                        </a>
+                        <button class="btn btn-danger" @onclick="() => Editar(produto.id)">
+                            B
+                        </button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -37,6 +53,7 @@ else
 
 @code {
     private List<Produto> produtos;
+    private int quantidadeDeCadastros;
 
     protected override void OnInitialized()
     {
@@ -46,5 +63,14 @@ else
         {
             produtos = session.Query<Produto>().ToList();
         }
+
+        quantidadeDeCadastros = produtos.Count();
     }
+
+    private void Editar(int id)
+    {        
+        string url = $"/produtoeditar/{id}";
+        Navigation.NavigateTo(url);
+    }
+
 }

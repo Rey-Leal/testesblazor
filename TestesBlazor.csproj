@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <None Remove="Components\Mappings\Produto.hbm.xml" />
+    <None Remove="Components\Mappings\Usuario.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Components\Mappings\Produto.hbm.xml" />
+    <EmbeddedResource Include="Components\Mappings\Usuario.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +23,10 @@
     <PackageReference Include="Remotion.Linq" Version="2.2.0" />
     <PackageReference Include="Remotion.Linq.EagerFetching" Version="2.2.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\Controllers\" />
   </ItemGroup>
 
 </Project>
