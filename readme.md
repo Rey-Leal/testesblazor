@@ -23,12 +23,6 @@ O projeto está organizado da seguinte forma:
 * **Mapping**: Contém os arquivos de mapeamentos para cada classe utilizada.
 * **Pages**: Contém os componentes Blazor que fornecem a interface do usuário para interagir com os dados.
 
-## Funcionalidades
-* **Create**: Adicionar novos registros ao banco de dados.
-* **Read**: Visualizar registros existentes.
-* **Update**: Editar registros existentes.
-* **Delete**: Remover registros do banco de dados.
-
 ## Configuração e Execução
 Para executar este projeto localmente, siga os passos abaixo:
 
